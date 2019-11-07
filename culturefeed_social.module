@@ -537,7 +537,9 @@ function culturefeed_social_block_view($delta) {
       return culturefeed_social_block_my_activity_summary($account);
 
     case 'loggedinuser-activity-summary':
-      return culturefeed_social_block_my_activity_summary(DrupalCultureFeed::getLoggedInAccount());
+      global $user;
+      $account = $user;
+      return culturefeed_social_block_my_activity_summary($account);
 
     case 'page-activity-summary':
       $page = culturefeed_pages_get_viewed_page();
